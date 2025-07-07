@@ -51,6 +51,9 @@ class Import extends CI_Controller {
 
                     }
                 }
+                 if (file_exists($inputFileName)) {
+                    unlink($inputFileName);
+                }
                 $this->session->set_flashdata('success', "$count_rows product(s) inserted successfully.");
 
             } else {
