@@ -1,152 +1,164 @@
-# OrderPro
+OrderPro
+========
 
-OrderPro is a web-based product and order management system built with [CodeIgniter 3](https://codeigniter.com/), designed to help you import, manage, and track products efficiently. It features a modern UI, product import via Excel/CSV, and robust error handling.
+OrderPro is a web-based product and order management system built with `CodeIgniter 3 <https://codeigniter.com/>`_, designed to help you import, manage, and track products efficiently. It features a modern UI, product import via Excel/CSV, and robust error handling.
 
----
+----
 
-## Features
+Features
+--------
 
 - Import products from Excel or CSV files using a user-friendly interface
-- View, manage products
+- View and manage products
+- Dashboard for quick navigation
 - Authentication and session management
 - Error and success flash messages for user feedback
 
----
+----
 
-## Requirements
+Requirements
+------------
 
 - **PHP**: 7.2 or newer (PHP 8.x supported)
-- **XAMPP**: Recommended for local development ([Download XAMPP](https://www.apachefriends.org/download.html))
-- **Composer**: For dependency management ([Get Composer](https://getcomposer.org/))
+- **XAMPP**: Recommended for local development (`Download XAMPP <https://www.apachefriends.org/download.html>`_)
+- **Composer**: For dependency management (`Get Composer <https://getcomposer.org/>`_)
 - **MySQL**: For database storage
 
----
+----
 
-## Installation
+Installation
+------------
 
-### 1. Clone the Repository
+1. **Clone the Repository**
 
-```sh
-git clone https://github.com/Vikashjain2//OneNorthShip.git
-cd OneNorthShip
-```
+   .. code-block:: sh
 
-### 2. Install Composer Dependencies
+      git clone https://github.com/Vikashjain2/OneNorthShip.git
+      cd OneNorthShip
 
-Make sure [Composer](https://getcomposer.org/) is installed, then run:
+2. **Install Composer Dependencies**
 
-```sh
-composer install
-```
+   Make sure `Composer <https://getcomposer.org/>`_ is installed, then run:
 
-This will install all dependencies, including [`phpoffice/phpspreadsheet`](https://github.com/PHPOffice/PhpSpreadsheet), which is required for Excel/CSV import.
+   .. code-block:: sh
 
-### 3. XAMPP Setup
+      composer install
 
-- Download and install [XAMPP](https://www.apachefriends.org/download.html).
-- Place the project folder inside `C:\xampp\htdocs\` (Windows) or `/Applications/XAMPP/htdocs/` (Mac).
-- Start Apache and MySQL from the XAMPP Control Panel.
+   This will install all dependencies, including `phpoffice/phpspreadsheet <https://github.com/PHPOffice/PhpSpreadsheet>`_, which is required for Excel/CSV import.
 
-### 4. Database Setup
+3. **XAMPP Setup**
 
-- Create a new MySQL database (e.g., `one_north_ship`).
-- Import the provided SQL file:
+   - Download and install `XAMPP <https://www.apachefriends.org/download.html>`_.
+   - Place the project folder inside ``C:\xampp\htdocs\`` (Windows) or ``/Applications/XAMPP/htdocs/`` (Mac).
+   - Start Apache and MySQL from the XAMPP Control Panel.
 
-```sh
-# In phpMyAdmin or MySQL CLI:
-mysql -u root -p one_north_ship < db/one_north_ship.sql
-```
+4. **Database Setup**
 
-- Update your database credentials in [`application/config/database.php`](application/config/database.php).
+   - Create a new MySQL database (e.g., ``one_north_ship``).
+   - Import the provided SQL file:
 
-### 5. PHP Configuration (`php.ini`)
+     .. code-block:: sh
 
-To support large file uploads and ensure PhpSpreadsheet works correctly, update your `php.ini` (usually found in `C:\xampp\php\php.ini`):
+        # In phpMyAdmin or MySQL CLI:
+        mysql -u root -p one_north_ship < db/one_north_ship.sql
 
-```
-; Enable required extensions
-extension=mbstring
-extension=gd2
-extension=zip
-extension=xml
-extension=iconv
-```
+   - Update your database credentials in ``application/config/database.php``.
 
-> **After editing `php.ini`, restart Apache from the XAMPP Control Panel.**
+5. **PHP Configuration (php.ini)**
 
----
+   To support large file uploads and ensure PhpSpreadsheet works correctly, update your ``php.ini`` (usually found in ``C:\xampp\php\php.ini``):
 
-## Usage
+   .. code-block:: ini
+      ; Enable required extensions
+      extension=mbstring
+      extension=gd2
+      extension=zip
+      extension=xml
+      extension=iconv
 
-1. Visit [http://localhost/OneNorthShip](http://localhost/OneNorthShip) in your browser.
+   **After editing ``php.ini``, restart Apache from the XAMPP Control Panel.**
+
+----
+
+Usage
+-----
+
+1. Visit http://localhost/OneNorthShip in your browser.
 2. Log in with your credentials.
 
----
+----
 
-## Adding This Composer Packages
+Adding Composer Packages
+------------------------
 
-To add The PHP packages, use Composer:
+To add PHP packages, use Composer:
 
-```sh
-composer require phpoffice/phpspreadsheet
+.. code-block:: sh
 
-```
----
+   composer require phpoffice/phpspreadsheet
 
-## Project Structure
+----
 
-```
-application/
-    controllers/
-    models/
-    views/
-    config/
-    ...
-assets/
-    uploads/
-db/
-    one_north_ship.sql
-system/
-vendor/
-    autoload.php
-    phpoffice/
-    ...
-index.php
-composer.json
-```
+Project Structure
+-----------------
 
----
+.. code-block:: text
 
-## Dependencies
+   application/
+       controllers/
+       models/
+       views/
+       config/
+       ...
+   assets/
+       uploads/
+   db/
+       one_north_ship.sql
+   system/
+   vendor/
+       autoload.php
+       phpoffice/
+       ...
+   index.php
+   composer.json
 
-- [CodeIgniter 3](https://codeigniter.com/)
-- [phpoffice/phpspreadsheet](https://github.com/PHPOffice/PhpSpreadsheet)
-- [Composer](https://getcomposer.org/)
+----
 
----
+Dependencies
+------------
 
-## License
+- `CodeIgniter 3 <https://codeigniter.com/>`_
+- `phpoffice/phpspreadsheet <https://github.com/PHPOffice/PhpSpreadsheet>`_
+- `Composer <https://getcomposer.org/>`_
 
-This project is licensed under the MIT License. See [`license.txt`](license.txt) for details.
+----
 
----
+License
+-------
 
-## Credits
+This project is licensed under the MIT License. See ``license.txt`` for details.
+
+----
+
+Credits
+-------
 
 - CodeIgniter Team
-- [PhpSpreadsheet](https://github.com/PHPOffice/PhpSpreadsheet)
+- `PhpSpreadsheet <https://github.com/PHPOffice/PhpSpreadsheet>`_
 - FontAwesome for icons
 
----
+----
 
-## Security
+Security
+--------
 
-For security issues, please contact the maintainer or use the official CodeIgniter [security reporting channels](https://codeigniter.com/security).
+For security issues, please contact the maintainer or use the official CodeIgniter `security reporting channels <https://codeigniter.com/security>`_.
 
----
+----
 
-## Author
+Author
+------
 
 - vikashjain (mailto:vikashjain2205@gmail.com)
 
----
+----
