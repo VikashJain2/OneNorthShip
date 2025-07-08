@@ -1,71 +1,152 @@
-###################
-What is CodeIgniter
-###################
+# OrderPro
 
-CodeIgniter is an Application Development Framework - a toolkit - for people
-who build web sites using PHP. Its goal is to enable you to develop projects
-much faster than you could if you were writing code from scratch, by providing
-a rich set of libraries for commonly needed tasks, as well as a simple
-interface and logical structure to access these libraries. CodeIgniter lets
-you creatively focus on your project by minimizing the amount of code needed
-for a given task.
+OrderPro is a web-based product and order management system built with [CodeIgniter 3](https://codeigniter.com/), designed to help you import, manage, and track products efficiently. It features a modern UI, product import via Excel/CSV, and robust error handling.
 
-*******************
-Release Information
-*******************
+---
 
-This repo contains in-development code for future releases. To download the
-latest stable release please visit the `CodeIgniter Downloads
-<https://codeigniter.com/download>`_ page.
+## Features
 
-**************************
-Changelog and New Features
-**************************
+- Import products from Excel or CSV files using a user-friendly interface
+- View, manage products
+- Authentication and session management
+- Error and success flash messages for user feedback
 
-You can find a list of all changes for each release in the `user
-guide change log <https://github.com/bcit-ci/CodeIgniter/blob/develop/user_guide_src/source/changelog.rst>`_.
+---
 
-*******************
-Server Requirements
-*******************
+## Requirements
 
-PHP version 5.6 or newer is recommended.
+- **PHP**: 7.2 or newer (PHP 8.x supported)
+- **XAMPP**: Recommended for local development ([Download XAMPP](https://www.apachefriends.org/download.html))
+- **Composer**: For dependency management ([Get Composer](https://getcomposer.org/))
+- **MySQL**: For database storage
 
-It should work on 5.3.7 as well, but we strongly advise you NOT to run
-such old versions of PHP, because of potential security and performance
-issues, as well as missing features.
+---
 
-************
-Installation
-************
+## Installation
 
-Please see the `installation section <https://codeigniter.com/userguide3/installation/index.html>`_
-of the CodeIgniter User Guide.
+### 1. Clone the Repository
 
-*******
-License
-*******
+```sh
+git clone https://github.com/Vikashjain2//OneNorthShip.git
+cd OneNorthShip
+```
 
-Please see the `license
-agreement <https://github.com/bcit-ci/CodeIgniter/blob/develop/user_guide_src/source/license.rst>`_.
+### 2. Install Composer Dependencies
 
-*********
-Resources
-*********
+Make sure [Composer](https://getcomposer.org/) is installed, then run:
 
--  `User Guide <https://codeigniter.com/docs>`_
--  `Contributing Guide <https://github.com/bcit-ci/CodeIgniter/blob/develop/contributing.md>`_
--  `Language File Translations <https://github.com/bcit-ci/codeigniter3-translations>`_
--  `Community Forums <http://forum.codeigniter.com/>`_
--  `Community Wiki <https://github.com/bcit-ci/CodeIgniter/wiki>`_
--  `Community Slack Channel <https://codeigniterchat.slack.com>`_
+```sh
+composer install
+```
 
-Report security issues to our `Security Panel <mailto:security@codeigniter.com>`_
-or via our `page on HackerOne <https://hackerone.com/codeigniter>`_, thank you.
+This will install all dependencies, including [`phpoffice/phpspreadsheet`](https://github.com/PHPOffice/PhpSpreadsheet), which is required for Excel/CSV import.
 
-***************
-Acknowledgement
-***************
+### 3. XAMPP Setup
 
-The CodeIgniter team would like to thank EllisLab, all the
-contributors to the CodeIgniter project and you, the CodeIgniter user.
+- Download and install [XAMPP](https://www.apachefriends.org/download.html).
+- Place the project folder inside `C:\xampp\htdocs\` (Windows) or `/Applications/XAMPP/htdocs/` (Mac).
+- Start Apache and MySQL from the XAMPP Control Panel.
+
+### 4. Database Setup
+
+- Create a new MySQL database (e.g., `one_north_ship`).
+- Import the provided SQL file:
+
+```sh
+# In phpMyAdmin or MySQL CLI:
+mysql -u root -p one_north_ship < db/one_north_ship.sql
+```
+
+- Update your database credentials in [`application/config/database.php`](application/config/database.php).
+
+### 5. PHP Configuration (`php.ini`)
+
+To support large file uploads and ensure PhpSpreadsheet works correctly, update your `php.ini` (usually found in `C:\xampp\php\php.ini`):
+
+```
+; Enable required extensions
+extension=mbstring
+extension=gd2
+extension=zip
+extension=xml
+extension=iconv
+```
+
+> **After editing `php.ini`, restart Apache from the XAMPP Control Panel.**
+
+---
+
+## Usage
+
+1. Visit [http://localhost/OneNorthShip](http://localhost/OneNorthShip) in your browser.
+2. Log in with your credentials.
+
+---
+
+## Adding This Composer Packages
+
+To add The PHP packages, use Composer:
+
+```sh
+composer require phpoffice/phpspreadsheet
+
+```
+---
+
+## Project Structure
+
+```
+application/
+    controllers/
+    models/
+    views/
+    config/
+    ...
+assets/
+    uploads/
+db/
+    one_north_ship.sql
+system/
+vendor/
+    autoload.php
+    phpoffice/
+    ...
+index.php
+composer.json
+```
+
+---
+
+## Dependencies
+
+- [CodeIgniter 3](https://codeigniter.com/)
+- [phpoffice/phpspreadsheet](https://github.com/PHPOffice/PhpSpreadsheet)
+- [Composer](https://getcomposer.org/)
+
+---
+
+## License
+
+This project is licensed under the MIT License. See [`license.txt`](license.txt) for details.
+
+---
+
+## Credits
+
+- CodeIgniter Team
+- [PhpSpreadsheet](https://github.com/PHPOffice/PhpSpreadsheet)
+- FontAwesome for icons
+
+---
+
+## Security
+
+For security issues, please contact the maintainer or use the official CodeIgniter [security reporting channels](https://codeigniter.com/security).
+
+---
+
+## Author
+
+- vikashjain (mailto:vikashjain2205@gmail.com)
+
+---
